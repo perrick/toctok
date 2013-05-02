@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Documentation | Toctok</title>
+</head>
+<body>
+
+<h1>Documentation | Toctok</h1>
+<p><strong>Toctok</strong> is a sound notifier build upont CouchDB.
+It will fetch some data from a CouchDB server and based on some rules, it will try to play a sound.</p>
+
+<h2>Why create such a tool ?</h2>
+<ul>
+	<li>to start experimenting with a new set of tools : CouchDb and Mercurial, in particular</li>
+	<li>to circumvent the need to build a green lamp</li>
+</ul>
+
+<h2>How to set up Toctok ?</h2>
+<ol>
+	<li>install a CouchDB server somewhere</li>
+	<li>start sending PUT requests to the CouchDB server (some examples can be found in <samp>/examples/</samp>)</li>
+	<li>fire up your browser at <samp>http://localhost/toctok/admin/</samp>
+		<ul>
+			<li>configure the CouchDB server</li>
+			<li>add some rules based on the requests you're receiving</li>
+		</ul>
+	</li>
+	<li>add a task to your crontab <samp>php /path/to/toctok/index.php</samp></li>
+	<li>done...</li>
+</ol>
+	
+</p>
+</body>
+</html>
