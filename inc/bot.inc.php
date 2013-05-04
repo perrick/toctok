@@ -8,6 +8,7 @@
 	Copyright (C) No Parking 2013 - 2013
 */
 
+
 class Toctok_Bot {
 	function __construct() {
 	}
@@ -20,10 +21,10 @@ class Toctok_Bot {
 				$help .= "--" . $method->getName() . "\n";
 			}
 		}
-		
+
 		return $help;
 	}
-	
+
 	function play_sample() {
 		exec("afplay --time 2 ".dirname(__FILE__)."/../medias/audio/Ophelia-s-song.mp3");
 	}

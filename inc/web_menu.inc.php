@@ -9,9 +9,6 @@
 */
 
 class Toctok_Web_Menu {
-	function __construct() {
-	}
-
 	function content() {
 		$elements = array(
 			array(
@@ -25,13 +22,13 @@ class Toctok_Web_Menu {
 				'content' => "action",
 			),
 		);
-		
+
 		$content = "<ul>";
 		foreach ($elements as $element) {
-			$content .= "<li><a href=\"index.html?".$element['zone']."=".$element['content']."\">".$element['name']."</a></li>";
+			$content .= "<li><a href=\"#\" data-zone=\"".$element['zone']."\" data-content=\"".$element['content']."\">".$element['name']."</a></li>";
 		}
 		$content .= "</content>";
-		
+
 		return $content;
 	}
 }

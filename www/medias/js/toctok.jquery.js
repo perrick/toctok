@@ -8,9 +8,26 @@ $(document).ready(function() {
 			cache: false,
 			success: function(data) {
 				if (data != null) {
-					div.replaceContent(data);
+					div.html(data);
 				}
 			},
 		});
-	})
+	});
+	
+	$("a").live("click", function() {
+		var zone = $(this).attr("data-zone");
+		var content = $(this).attr("data-content");
+		$.ajax({
+			url: "ajax.php?content="+content,
+			type: "get",
+			dataType: "html",
+			cache: false,
+			success: function(data) {
+				if (data != null) {
+					$("div#" + zone).html(data);
+				}
+			},
+		});
+		return false;
+	});
 });

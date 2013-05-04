@@ -1,11 +1,11 @@
 <?php
 /*
-	toctok
-	$Author: frank $
-	$URL: svn://svn.noparking.net/var/repos/projets/norska/cli/bot.php $
-	$Revision: 29 $
+ toctok
+$Author: frank $
+$URL: svn://svn.noparking.net/var/repos/projets/norska/cli/bot.php $
+$Revision: 29 $
 
-	Copyright (C) No Parking 2013 - 2013
+Copyright (C) No Parking 2013 - 2013
 */
 
 require dirname(__FILE__) . "/../inc/require.inc.php";

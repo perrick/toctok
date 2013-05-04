@@ -8,6 +8,7 @@
 	Copyright (C) No Parking 2013 - 2013
 */
 
+
 function __($string, $replacements = null) {
 	if (isset($GLOBALS['__'][$string])) {
 		$string = $GLOBALS['__'][$string];
