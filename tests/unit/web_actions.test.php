@@ -1,18 +1,10 @@
 <?php
-/*
-	toctok
-	$Author: perrick $
-	$URL: svn://svn.noparking.net/var/repos/projets/opentime.fr/applications/ofr/inc/bot.inc.php $
-	$Revision: 830 $
-
-	Copyright (C) No Parking 2013 - 2013
-*/
 
 require dirname(__FILE__)."/../../../simpletest/autorun.php";
 require dirname(__FILE__)."/../../inc/require.inc.php";
 
-class Tests_Toctok_Action extends UnitTestCase {
-	function test_save() {
+class Tests_Toctok_Web_Actions extends UnitTestCase {
+	function test_catalogue() {
 		$configuration = __DIR__."/../var/toctok.test.json";
 		
 		$action = new Toctok_Action("action-sauvegardée");
@@ -26,9 +18,10 @@ class Tests_Toctok_Action extends UnitTestCase {
 			'type' => "mp3",
 			'name' => __DIR__."/../../medias/mp3/Ophelia-s-song.mp3",
 		);
-		$this->assertTrue($action->save());
-		
-		$this->assertTrue(file_exists($configuration));
+		$action->save();
+
+		$actions = new Toctok_Web_Actions($configuration);
+		$this->assertPattern("/action-sauvegardé/", $actions->catalogue());
 		
 		unset($configuration);
 	}

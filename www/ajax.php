@@ -14,11 +14,11 @@ $html = "";
 if (isset($_GET['content'])) {
 	switch ($_GET['content']) {
 		case "actions":
-			$actions = new Toctok_Actions();
+			$actions = new Toctok_Web_Actions();
 			$html = $actions->catalogue();
 			break;
 		case "action":
-			$action = new Toctok_Action(isset($_GET['name']) ? $_GET['name'] : "");
+			$action = new Toctok_Web_Action(isset($_GET['name']) ? $_GET['name'] : "");
 			$html = $action->form();
 			break;
 		case "menu":
