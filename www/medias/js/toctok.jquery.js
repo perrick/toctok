@@ -17,8 +17,9 @@ $(document).ready(function() {
 	$("a").live("click", function() {
 		var zone = $(this).attr("data-zone");
 		var content = $(this).attr("data-content");
+		var name = $(this).attr("data-name");
 		$.ajax({
-			url: "ajax.php?content="+content,
+			url: "ajax.php?content="+content+"&name="+name,
 			type: "get",
 			dataType: "html",
 			cache: false,

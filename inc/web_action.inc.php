@@ -11,7 +11,7 @@
 
 class Toctok_Web_Action extends Toctok_Action {
 	function link() {
-		return '<a href="">'.$this->name.'</a>';
+		return '<a href="index.php?action='.$this->name.'">'.$this->name.'</a>';
 	}
 
 	function form() {
@@ -23,25 +23,19 @@ class Toctok_Web_Action extends Toctok_Action {
 			<fieldset>
 			<legend>'.__("source").'</legend>
 			<label for="action[source][type]">'.__("type").'</label>
-			<select name="action[source][type]">
-			<option value="file">'.__("file").'</option>
-			</select>
+			<input name="action[source][type]" value="'.$this->source['type'].'" />
 			
 			<label for="action[source][name]">'.__("name").'</label>
 			<input name="action[source][name]" value="'.$this->source['name'].'" />
 
 			<label for="action[source][trigger]">'.__("trigger").'</label>
-			<select name="action[source][trigger]">
-			<option value="last_modification">'.__("last modification").'</option>
-			</select>
+			<input name="action[source][trigger]" value="'.$this->source['trigger'].'" />
 			</fieldset>
 			
 			<fieldset>
 			<legend>'.__("effect").'</legend>
 			<label for="action[effect][type]">'.__("type").'</label>
-			<select name="action[effect][type]">
-			<option value="mp3">'.__("mp3").'</option>
-			</select>
+			<input name="action[effect][type]" value="'.$this->effect['type'].'" />
 			
 			<label for="action[effect][name]">'.__("file").'</label>
 			<input name="action[effect][name]" value="'.$this->effect['name'].'" />

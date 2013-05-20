@@ -18,4 +18,4 @@ require __DIR__."/bot.inc.php";
 require __DIR__."/misc.inc.php";
 require __DIR__."/web_action.inc.php";
 require __DIR__."/web_actions.inc.php";
-require __DIR__."/web_menu.inc.php";
+require __DIR__."/web_page.inc.php";
