@@ -11,6 +11,7 @@
 date_default_timezone_set("Europe/Paris");
 
 require __DIR__."/../lang/fr_FR.lang.php";
+require __DIR__."/../configuration/toctok.config.php";
 
 require __DIR__."/action.inc.php";
 require __DIR__."/actions.inc.php";
