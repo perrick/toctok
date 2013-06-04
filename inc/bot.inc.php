@@ -34,25 +34,19 @@ class Toctok_Bot {
 				$number = 0;
 				foreach ($result as $overview) {
 					$number++;
-		    		$subject = $overview->subject;
-		    		$body = imap_body($mailbox, $number);
+					$message = new Toctok_Message($overview->from, $overview->subject, imap_body($mailbox, $number));
+					$sound = false;
 		    		foreach ($GLOBALS['configuration']['actions'] as $key => $action) {
-		    			$answer = false;
-		    			if (isset($action['subject']) and !empty($action['subject'])) {
-		    				if (preg_match($action['subject'], $subject)) {
-		    					$answer = true;
-		    				}
+		    			if ($message->verifies($action)) {
+		    				$sound = $action['sound'];
+		    				break;
 		    			}
-		    			if (isset($action['body']) and !empty($action['body'])) {
-		    				if (preg_match($action['body'], $body)) {
-		    					$answer = true;
-		    				}
-		    			}
-			    		if ($answer) {
-			    			exec("afplay --time 2 ".$action['sound']);
-			    		}
 		    		}
 		    		imap_delete($mailbox, $number);
+					if ((bool)$sound) {
+		    			exec("afplay --time 5 '".$sound."'");
+		    			break;
+		    		}
 				}
 				imap_expunge($mailbox);
 			}
@@ -61,6 +55,6 @@ class Toctok_Bot {
 	}
 
 	function play_sample() {
-		exec("afplay --time 2 ".dirname(__FILE__)."/../medias/audio/Ophelia-s-song.mp3");
+		exec("afplay --time 5 ".dirname(__FILE__)."/../medias/mp3/pic-vert.mp3");
 	}
 }
