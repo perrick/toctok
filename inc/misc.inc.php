@@ -22,10 +22,3 @@ function __($string, $replacements = null) {
 			return vsprintf($string, $replacements);
 	}
 }
-
-function play_file($filename) {
-	$cmd = $GLOBALS['configuration']['player'];
-	$cmd = vsprintf($cmd, array($filename));
-
-	shell_exec($cmd);
-}

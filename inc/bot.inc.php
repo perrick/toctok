@@ -17,7 +17,7 @@ class Toctok_Bot {
 		$help = __("Methods available with Toctok_Bot:") . "\n";
 		$ReflectionClass = new ReflectionClass("Toctok_Bot");
 		foreach ($ReflectionClass->getMethods() as $method) {
-			if (!in_array($method->getName(), array ("help", "__construct"))) {
+			if (!in_array($method->getName(), array ("help", "play", "__construct"))) {
 				$help .= "--" . $method->getName() . "\n";
 			}
 		}
@@ -44,7 +44,7 @@ class Toctok_Bot {
 					}
 					imap_delete($mailbox, $number);
 					if ((bool)$sound) {
-						play_file($sound);
+						$this->play($sound);
 						break;
 					}
 				}
@@ -55,6 +55,11 @@ class Toctok_Bot {
 	}
 
 	function play_sample() {
-		play_file(dirname(__FILE__)."/../medias/mp3/pic-vert.mp3");
+		$this->play(dirname(__FILE__)."/../medias/mp3/pic-vert.mp3");
+	}
+
+	function play($filename) {
+		$cmd = vsprintf($GLOBALS['configuration']['player'], array($filename));
+		shell_exec($cmd);
 	}
 }
