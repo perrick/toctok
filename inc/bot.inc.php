@@ -36,17 +36,17 @@ class Toctok_Bot {
 					$number++;
 					$message = new Toctok_Message($overview->from, $overview->subject, imap_body($mailbox, $number));
 					$sound = false;
-		    		foreach ($GLOBALS['configuration']['actions'] as $key => $action) {
-		    			if ($message->verifies($action)) {
-		    				$sound = $action['sound'];
-		    				break;
-		    			}
-		    		}
-		    		imap_delete($mailbox, $number);
+					foreach ($GLOBALS['configuration']['actions'] as $key => $action) {
+						if ($message->verifies($action)) {
+							$sound = $action['sound'];
+							break;
+						}
+					}
+					imap_delete($mailbox, $number);
 					if ((bool)$sound) {
-		    			exec("afplay --time 5 '".$sound."'");
-		    			break;
-		    		}
+						play_file($sound);
+						break;
+					}
 				}
 				imap_expunge($mailbox);
 			}
@@ -55,6 +55,6 @@ class Toctok_Bot {
 	}
 
 	function play_sample() {
-		exec("afplay --time 5 ".dirname(__FILE__)."/../medias/mp3/pic-vert.mp3");
+		play_file(dirname(__FILE__)."/../medias/mp3/pic-vert.mp3");
 	}
 }

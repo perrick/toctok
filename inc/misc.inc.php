@@ -22,3 +22,9 @@ function __($string, $replacements = null) {
 			return vsprintf($string, $replacements);
 	}
 }
+
+function play_file($filename) {
+	$cmd = $GLOBALS['configuration']['player'];
+
+	return str_replace("%s", $filename, $cmd);
+}

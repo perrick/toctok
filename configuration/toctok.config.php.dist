@@ -1,5 +1,7 @@
 <?php
 
+$configuration['player'] = "mplayer -endpos 5 \"%s\"";
+
 $configuration['imap_mailbox'] = "ssl0.ovh.net:993/imap/ssl";
 $configuration['imap_user'] = "toctok@noparking.net";
 $configuration['imap_password'] = "*****";
